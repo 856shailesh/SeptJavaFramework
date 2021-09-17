@@ -1,0 +1,5 @@
+Naming convention
+class or interface name = ShaileshKumar (First Capital)
+method name = shaileshKumar (Camel Convention)
+package = shaileshkumar (All small)
+final constant values = SHAILESHKUMAR   OR SHAILESH_KUMAR
