@@ -12,6 +12,10 @@ public final class HomePageTests extends BaseTest {
 
     }
 
+    /*
+
+     */
+
     @Test
     public void test3() {
         //Driver.initDriver();

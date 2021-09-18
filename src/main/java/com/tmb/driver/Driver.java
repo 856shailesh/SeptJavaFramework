@@ -26,7 +26,7 @@ public final class Driver {
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
             DriverManager.setDriver(driver);
-            DriverManager.getDriver().get(ReadPropertyFile.getValue("URL"));
+            DriverManager.getDriver().get(ReadPropertyFile.get("url"));
         }
     }
 

@@ -5,9 +5,15 @@ public final class FrameworkConstants {
     //Making method private so that these are not directly accessible and can only be accesed through getter method
     // Making default constructor so that to restrict the obj creation
 
-    private static final String CHROMEDRIVERPATH = System.getProperty("user.dir")+"/src/test/resources/executables/chromedriver.exe";
+    private static final String RESOURCESPATH = System.getProperty("user.dir") + "/src/test/resources";
+    private static final String CHROMEDRIVERPATH = RESOURCESPATH + "/executables/chromedriver.exe";
+    private static final String CONFIGFILEPATH = RESOURCESPATH + "/config/config.properties";
 
-    public static String getChromedriverpath(){
+    public static String getConfigFilepath() {
+        return CONFIGFILEPATH;
+    }
+
+    public static String getChromeDriverpath() {
         return CHROMEDRIVERPATH;
     }
 }
