@@ -1,6 +1,7 @@
 package com.tmb.tests;
 
 import com.tmb.driver.Driver;
+import com.tmb.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class LoginPageTest extends BaseTest {
 //        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
 //        WebDriver driver = new ChromeDriver(); //Import : Clt+Shift+O
 //        driver.get("https://www.google.com"); // Keep in excel of Properties file for manual tester
-        Driver.driver.findElement(By.name("q")).sendKeys("Automations", Keys.ENTER);
+        DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automations", Keys.ENTER);
 //        driver.quit(); // we are repeating few lines in every test so use after/before method
     }
 
