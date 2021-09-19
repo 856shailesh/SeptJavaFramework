@@ -10,9 +10,12 @@ public class BaseTest {
         //protected constructor to avoid object creation . Why we didn't do private ?
     }
 
+    /*
+    private , protected , default -> public , go in this hierarchy
+     */
 
     @BeforeMethod
-    public void setUp() {
+    protected void setUp() throws Exception {
         Driver.initDriver();
         // ================== Below code moved to Driver class for better usage . ==========
 //        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
@@ -22,7 +25,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    protected void tearDown() {
       Driver.quitDriver();
     }
 }
