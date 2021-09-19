@@ -28,7 +28,7 @@ public final class ReadPropertyFile {
             } */
 
             for (Map.Entry<Object, Object> entry : property.entrySet()) {
-                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
