@@ -3,7 +3,7 @@ package com.tmb.pages;
 import com.tmb.driver.DriverManager;
 import org.openqa.selenium.By;
 
-public final class OrangeHRMLoginPage {
+public final class OrangeHRMLoginPage extends BasePage{
     /*
     id > name > classname > linktest > partialLinktext > css or xpath
     Assertions should not be called in page layers
@@ -16,22 +16,22 @@ public final class OrangeHRMLoginPage {
     private final By buttonLogin = By.id("btnLogin");
 
     public OrangeHRMLoginPage enterUserName(String username) {
-        DriverManager.getDriver().findElement(textboxUsername).sendKeys(username);
+        sendKeys(textboxUsername,username);
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password) {
-        DriverManager.getDriver().findElement(textboxPassword).sendKeys(password);
+        sendKeys(textboxPassword,password);
         return this;
     }
 
     public OrangeHRMHomePage clickLogin() {
-        DriverManager.getDriver().findElement(buttonLogin).click();
+        click(buttonLogin);
         return new OrangeHRMHomePage();
     }
 
     public String getTitle() {
-        return DriverManager.getDriver().getTitle();
+        return getPageTitle();
     }
 
 }

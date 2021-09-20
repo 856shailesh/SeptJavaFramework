@@ -1,6 +1,4 @@
 
-g
-7src/main/java/com/tmb/constants/FrameworkConstants.java,a\c\ac9901d5f07eca0793218cff3f31a58ade7b537e
 ^
 .src/test/java/com/tmb/tests/LoginPageTest.java,4\1\41144f374cc427474da216fd2cddbcec6a92d6b2
 _

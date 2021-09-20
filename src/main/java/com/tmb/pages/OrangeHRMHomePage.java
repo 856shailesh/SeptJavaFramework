@@ -8,13 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class OrangeHRMHomePage {
+public class OrangeHRMHomePage extends BasePage {
 
     private final By linkWelcome = By.id("welcome");
     private final By linkLogout = By.xpath("//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() {
-        DriverManager.getDriver().findElement(linkWelcome).click();
+        click(linkWelcome);
         return this;
     }
 
@@ -23,8 +23,8 @@ public class OrangeHRMHomePage {
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS); // Kind of Thread.sleep
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10);
         wait.until(ExpectedConditions.elementToBeClickable(linkLogout));
-        wait.until(d -> d.findElement(linkLogout).isEnabled()); //Java 8 implementation
-        DriverManager.getDriver().findElement(linkLogout).click();
+        //wait.until(d -> d.findElement(linkLogout).isEnabled()); //Java 8 implementation
+        click(linkLogout);
         return new OrangeHRMLoginPage();
     }
 }
