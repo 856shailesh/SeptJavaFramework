@@ -3,29 +3,35 @@ package com.tmb.pages;
 import com.tmb.driver.DriverManager;
 import org.openqa.selenium.By;
 
-public final class OrangeHRMLoginPage {
+public final class OrangeHRMLoginPage extends BasePage{
     /*
     id > name > classname > linktest > partialLinktext > css or xpath
+    Assertions should not be called in page layers
+    Every page method should have a return type
      */
 
 
-    private final By textbox_username = By.id("txtUsername");
-    private final By textbox_password = By.xpath("//input[@id='txtPassword' and @type='password']");
-    private final By button_login = By.id("btnLogin");
+    private final By textboxUsername = By.id("txtUsername");
+    private final By textboxPassword = By.xpath("//input[@id='txtPassword' and @type='password']");
+    private final By buttonLogin = By.id("btnLogin");
 
     public OrangeHRMLoginPage enterUserName(String username) {
-        DriverManager.getDriver().findElement(textbox_username).sendKeys(username);
+        sendKeys(textboxUsername,username);
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password) {
-        DriverManager.getDriver().findElement(textbox_password).sendKeys(password);
+        sendKeys(textboxPassword,password);
         return this;
     }
 
-    public OrangeHRMHomePage clickLogin(){
-        DriverManager.getDriver().findElement(button_login).click();
+    public OrangeHRMHomePage clickLogin() {
+        click(buttonLogin);
         return new OrangeHRMHomePage();
+    }
+
+    public String getTitle() {
+        return getPageTitle();
     }
 
 }
