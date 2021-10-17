@@ -1,8 +1,12 @@
 package com.tmb.tests;
 
 import com.tmb.driver.Driver;
+import com.tmb.reports.ExtentReport;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.lang.reflect.Method;
 
 public class BaseTest {
 
@@ -15,7 +19,7 @@ public class BaseTest {
      */
 
     @BeforeMethod
-    protected void setUp() throws Exception {
+    protected void setUp(Method m) throws Exception {
         Driver.initDriver();
         // ================== Below code moved to Driver class for better usage . ==========
 //        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
@@ -25,7 +29,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    protected void tearDown() {
-      Driver.quitDriver();
+    protected void tearDown(ITestResult result) {
+        Driver.quitDriver();
     }
 }

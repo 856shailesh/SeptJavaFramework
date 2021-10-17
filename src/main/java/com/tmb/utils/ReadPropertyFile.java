@@ -19,7 +19,7 @@ public final class ReadPropertyFile {
 
     static {
         try {
-            FileInputStream file = new FileInputStream(FrameworkConstants.getConfigFilepath());
+            FileInputStream file = new FileInputStream(FrameworkConstants.getConfigFilePath());
             property.load(file);
 
             /*

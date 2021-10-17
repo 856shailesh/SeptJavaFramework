@@ -1,26 +1,72 @@
 package com.tmb.constants;
 
+import com.tmb.enums.ConfigProperties;
+import com.tmb.utils.PropertyUtils;
+
 public final class FrameworkConstants {
-    //Making class final so that it cannot be extended
-    //Making method private so that these are not directly accessible and can only be accesed through getter method
-    // Making default constructor so that to restrict the obj creation
 
-    private static final String RESOURCESPATH = System.getProperty("user.dir") + "/src/test/resources";
-    private static final String CHROMEDRIVERPATH = RESOURCESPATH + "/executables/chromedriver.exe";
-    private static final String CONFIGFILEPATH = RESOURCESPATH + "/config/config.properties";
+    private FrameworkConstants() {}
+
     private static final int EXPLICITWAIT = 10;
+    private static final String RESOURCESPATH = System.getProperty("user.dir")+"/src/test/resources";
+    private static final String CHROMEDRIVERPATH = RESOURCESPATH+"/executables/chromedriver.exe";
+    private static final String GECKODRIVERPATH = RESOURCESPATH+"/executables/geckodriver.exe";
 
-    public static int getExplicitwait(){
+    private static final String CONFIGFILEPATH = RESOURCESPATH+"/config/config.properties";
+    private static final String JSONCONFIGFILEPATH = RESOURCESPATH + "/config/config.json";
+    private static final String EXCELPATH = RESOURCESPATH+"/excel/testdata.xlsx";
+    private static final String RUNMANGERSHEET = "RUNMANAGER";
+    private static final String ITERATIONDATASHEET = "DATA";
+    private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir")+"/extent-test-output/";
+    private static String extentReportFilePath = "";
+
+
+    public static String getExtentReportFilePath()  {
+        if(extentReportFilePath.isEmpty()) {
+            extentReportFilePath = createReportPath();
+        }
+        return extentReportFilePath;
+    }
+    private static String createReportPath()  {
+        if(PropertyUtils.get(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")) {
+            return EXTENTREPORTFOLDERPATH+System.currentTimeMillis()+"/index.html";
+        }
+        else {
+            return EXTENTREPORTFOLDERPATH+"/index.html";
+        }
+    }
+
+    public static String getGeckoDriverPath() {
+        return GECKODRIVERPATH;
+    }
+
+
+    public static String getExcelpath() {
+        return EXCELPATH;
+    }
+
+    public static String getJsonconfigfilepath() {
+        return JSONCONFIGFILEPATH;
+    }
+
+    public static int getExplicitwait() {
         return EXPLICITWAIT;
     }
 
-    public static String getConfigFilepath() {
+    public static String getRunmangerDatasheet() {
+        return RUNMANGERSHEET;
+    }
+
+    public static String getIterationDatasheet() {
+        return ITERATIONDATASHEET;
+    }
+
+    public static String getConfigFilePath() {
         return CONFIGFILEPATH;
     }
 
-    public static String getChromeDriverpath() {
+    public static String getChromeDriverPath() {
         return CHROMEDRIVERPATH;
     }
-
 
 }
